@@ -16,7 +16,6 @@ function App() {
       const indexOfFimMiddle = cleaned.indexOf("<|fim_middle|>");
 
       const llmOutput = getLLMOutput();
-      console.log("🚀 ~ parseScript ~ llmOutput:", llmOutput);
       if (llmOutput) {
         // add llmOutput before the indexOfFimMiddle
         cleaned =
@@ -28,7 +27,6 @@ function App() {
           .replace(/<\|fim_suffix\|>/g, "||")
           .replace(/<\|.*?\|>/g, "");
       }
-      console.log("🚀 ~ parseScript ~ cleaned:", cleaned);
 
       const quoted = `"${cleaned}"`;
       const parsed = JSON.parse(quoted);
